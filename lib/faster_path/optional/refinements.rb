@@ -5,7 +5,7 @@ module FasterPath
         FasterPath.basename(pth)
       end
     end
-  end 
+  end
 
   module RefinePathname
     refine Pathname do
@@ -30,6 +30,10 @@ module FasterPath
         FasterPath.add_trailing_separator(pth)
       end
       private :add_trailing_separator
+
+      def +(other)
+        FasterPath.+(@path, other)
+      end
     end
   end
 end
